@@ -2,6 +2,15 @@ version: '3.3'
 
 services:
   # https://github.com/wurstmeister/zookeeper-docker
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.4.2
+    container_name: elasticsearch
+    environment:
+      - "discovery.type=single-node"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    
   zookeeper:
     container_name: zookeeper
     image: wurstmeister/zookeeper:latest
